@@ -1,8 +1,73 @@
-<Project Sdk="Microsoft.NET.Sdk">
+using System;
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-  </PropertyGroup>
+namespace VG_Lab_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to the Grand Circus' Room Detail Generator!");
+            Console.WriteLine();
 
-</Project>
+            bool thisShouldContinue = false;
+            //bool isResult = true;
+
+            do
+            {
+                Console.WriteLine("Please give me the room length in inches:");
+                string roomLength = Console.ReadLine();  
+                double parsedRoomLength = double.Parse(roomLength);
+
+                Console.WriteLine();
+
+                Console.WriteLine("Please give me the room width in inches:");
+                string roomWidth = Console.ReadLine();
+                double parsedRoomWidth = double.Parse(roomWidth);
+
+                Console.WriteLine();
+
+                Console.WriteLine("Please give me the room height inches:");
+                string roomHeight = Console.ReadLine();
+                double parsedRoomHeight = double.Parse(roomHeight);
+
+
+                Console.WriteLine();
+
+                double area = (parsedRoomLength * parsedRoomWidth);
+                double perimeter = ((2 * parsedRoomLength) + (2 * parsedRoomWidth));
+                double volume = (parsedRoomWidth * parsedRoomHeight * parsedRoomLength);
+
+                Console.WriteLine($"The area of the room is: {area}");
+
+                Console.WriteLine($"The perimeter of the room is: {perimeter}");
+
+                Console.WriteLine($"The volume of the room is: {volume}");
+                Console.WriteLine();
+
+                Console.WriteLine("Continue? [yes/no]");
+                string newUserInput = Console.ReadLine();
+
+                Console.WriteLine();
+
+                if (newUserInput == "yes" || newUserInput == "Yes")
+                {
+                    thisShouldContinue = true;
+                }
+                else
+                {
+                    Console.WriteLine("I hope I addressed all your needs! Goodbye!");
+                    break;
+                }
+
+
+                Console.Clear();
+                continue;
+            }
+                                   
+
+            while (thisShouldContinue); 
+
+            Console.ReadKey();
+        }
+    }
+}
